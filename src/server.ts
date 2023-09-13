@@ -6,6 +6,7 @@ import { errorHandler } from "supertokens-node/framework/fastify";
 import UserMetadata from "supertokens-node/recipe/usermetadata";
 import Session from "supertokens-node/recipe/session";
 require("dotenv").config();
+import config from "./config";
 
 // Plugins
 
@@ -17,14 +18,7 @@ let server: FastifyInstance = Fastify({
 
 // Create all roles in supertoken
 async function getServer() {
-  // Plugins
-  server.register(cors, {
-    origin: "<YOUR_WEBSITE_DOMAIN>",
-    allowedHeaders: ["Content-Type", ...supertokens.getAllCORSHeaders()],
-    credentials: true,
-  });
-  server.setErrorHandler(errorHandler());
-
+  await server.register(config);
   supertokens.init({
     framework: "fastify",
     telemetry: false,
@@ -41,6 +35,13 @@ async function getServer() {
     },
     recipeList: [Session.init(), UserMetadata.init()],
   });
+  // Plugins
+  server.register(cors, {
+    origin: "<YOUR_WEBSITE_DOMAIN>",
+    allowedHeaders: ["Content-Type", ...supertokens.getAllCORSHeaders()],
+    credentials: true,
+  });
+  server.setErrorHandler(errorHandler());
   await server.register(routes, {});
   return server;
 }

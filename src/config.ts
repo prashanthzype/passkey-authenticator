@@ -20,17 +20,9 @@ const ConfigSchema = Type.Strict(
     SUPERTOKEN_API_KEY: Type.String(),
     APP_NAME: Type.String(),
     APP_AUTH_BASE_PATH: Type.String(),
-    MOBILE_RESET_REDIRECT_URL: Type.String(),
-    INFOBIP_BASE_URL: Type.String(),
-    INFOBIP_API_KEY: Type.String(),
-    DEBUG: Type.String(),
-    DOWNSTREAM_API_ENDPOINT: Type.String(),
     BASE_URL: Type.String({default: "localhost"}),
     WEBSITE_DOMAIN: Type.String(),
     ZYPE_DOMAIN: Type.String(),
-    ZYPE_DAPR_ENDPOINT: Type.String(),
-    ZYPE_DAPR_PORT: Type.String(),
-    ZYPE_API_VERSION: Type.String(),
   })
 );
 

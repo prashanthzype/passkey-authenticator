@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "debug": "npm run build && DEBUG=com.supertokens node dist/index.js",
-    "start": "npm run build && node dist/index.js",
+    "debug": "npm run build && DEBUG=com.supertokens node dist/src/index.js",
+    "start": "npm run build && node dist/src/index.js",
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\"",
     "build": "rm -rf dist && tsc -p tsconfig.json",
     "prisma:generate": "prisma generate",
@@ -36,7 +36,6 @@
     "supertokens-node": "^12.0.0"
   },
   "devDependencies": {
-    "@tsconfig/node-lts-strictest": "^18.12.1",
     "@types/node": "^16.18.4",
     "@types/node-rsa": "^1.1.1",
     "@types/string-format": "^2.0.0",

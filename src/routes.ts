@@ -20,7 +20,7 @@ const routeConfig = [
     handler: registerNewPasskeyHandler,
   },
   {
-    method: 'GET' as HTTPMethods,
+    method: 'POST' as HTTPMethods,
     url: '/validate-passkey',
     schema: {
       body: PasskeyChallenge,
