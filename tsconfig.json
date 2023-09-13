@@ -1,0 +1,21 @@
+{
+    "extends": "@tsconfig/node-lts-strictest",
+    "compilerOptions": {
+        "exactOptionalPropertyTypes": false,
+        "allowJs": true,       
+        "module": "commonjs",                /* Allow javascript files to be compiled. */
+        "checkJs": true,                       /* Report errors in .js files. */
+        "declaration": true,
+        "outDir": "dist",
+        "sourceMap": true
+    },
+    "include": [
+        "./src/**/*.ts", 
+        "./tests/**/*.ts",
+        "src/declaration.d.ts"
+    ],
+    "exclude": [
+        "./.secretsrc"
+    ]
+
+}

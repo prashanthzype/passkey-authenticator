@@ -1,0 +1,43 @@
+generator client {
+  provider        = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                BigInt          @id @default(autoincrement())
+  uid               String          @unique
+  createdAt         DateTime        @default(now())
+  customerId          String        @unique
+  authenticators    Authenticator[]
+  challenge         Challenge[]
+}
+
+model Authenticator {
+  id           BigInt   @id @default(autoincrement())
+  uid          String
+  createdAt    DateTime @default(now())
+  credentialId String
+  algorithm    String
+  publicKey    String
+  osType       String
+  user         User     @relation(fields: [uid], references: [uid])
+  authenticationType  String
+}
+
+model Challenge {
+  id                BigInt   @id @default(autoincrement())
+  uid               String
+  challenge         String   @unique
+  createdAt         DateTime @default(now())
+  origin            String
+  payload           String
+  osType            String
+  counter           Int
+  authStatus        Boolean
+  authenticationType  String
+  user              User     @relation(fields: [uid], references: [uid])
+}
