@@ -20,6 +20,8 @@ import getServer from './server.js';
       })
     }
     console.log(`Server listening on ${host} at port ${port}`)
+    server.swagger()
+
   })
   
   for (const signal of ['SIGINT', 'SIGTERM']) {
