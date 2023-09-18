@@ -25,7 +25,7 @@ async function getServer() {
     supertokens: {
       // https://try.supertokens.com is for demo purposes. Replace this with the address of your core instance (sign up on supertokens.com), or self host a core.
       connectionURI: server.config.CONNECTION_URI,
-      // apiKey: <API_KEY(if configured)>,
+      apiKey: server.config.SUPERTOKEN_API_KEY
     },
     appInfo: {
       // learn more about this on https://supertokens.com/docs/session/appinfo

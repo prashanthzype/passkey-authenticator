@@ -19,6 +19,7 @@
     "@fastify/cors": "^8.2.0",
     "@fastify/formbody": "^7.4.0",
     "@fastify/type-provider-typebox": "^2.4.0",
+    "@jmondi/oauth2-server": "^3.0.2",
     "@prisma/client": "5.2.0",
     "@sinclair/typebox": "^0.25.15",
     "ajv": "^8.12.0",
